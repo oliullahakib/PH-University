@@ -8,7 +8,6 @@ const IssuesContainer = ({ issuesPromiss }) => {
     const [datas,setDatas]=useState(issuesData)
     const [toggleBtn, setToggleBtn] = useState("All")
     const filtaredIssues = datas.filter(data => data.status ===toggleBtn)
-    console.log(filtaredIssues)
     return (
         <div>
             <Container>
@@ -19,7 +18,15 @@ const IssuesContainer = ({ issuesPromiss }) => {
                 />
                 <div className='grid grid-cols-3 gap-3 mt-5'>
                     {
-                       toggleBtn==="All"? issuesData.map((issue,index) => <IssueCard key={index} issue={issue} />):filtaredIssues.map((issue,index) => <IssueCard key={index} issue={issue} />)
+                        
+                       toggleBtn==="All"? issuesData.map((issue,index) => <IssueCard 
+                        key={index}
+                        issue={issue} 
+                        datas={datas}
+                        setDatas={setDatas}
+                        />):filtaredIssues.map((issue,index) => <IssueCard key={index} issue={issue} datas={datas}
+                        setDatas={setDatas} />)
+                        
                     }
                 </div>
             </Container>
