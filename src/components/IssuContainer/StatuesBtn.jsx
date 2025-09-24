@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StatuesBtn = ({toggleBtn,setToggleBtn}) => {
-    const statuesBtns = ["All", "Pending", "Submiited", "Reviewed"]
+    const statuesBtns = ["All", "Pending", "Submitted", "Reviewed"]
     const handleClick =(btn)=>{
         setToggleBtn(btn)
     }
